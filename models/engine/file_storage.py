@@ -23,7 +23,6 @@ class FileStorage:
                 reload: deserializes the json
     """
     __file_path = "{}/{}".format(os.path.abspath(os.getcwd()), "file.json")
-    print(__file_path)
     __objects = {}
 
     def all(self):
