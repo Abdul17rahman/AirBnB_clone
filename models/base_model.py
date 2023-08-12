@@ -3,7 +3,6 @@
 """
     This is the Base Module
 """
-
 from datetime import datetime
 import uuid
 import models
@@ -22,8 +21,8 @@ class BaseModel:
             to_dict - returns a dictionary of the instance
     """
     id = ""
-    created_at = datetime
-    updated_at = datetime
+    created_at = datetime.now()
+    updated_at = datetime.now()
 
     def __init__(self, *args, **kwargs):
         """
