@@ -27,7 +27,7 @@ class BaseModel:
         """
 
         # Creating an instance from a dictionary
-        if kwargs is not None:
+        if kwargs:
             if '__class__' in kwargs:
                 del kwargs['__class__']
             if 'created_at' in kwargs:
@@ -37,10 +37,11 @@ class BaseModel:
                 kwargs['updated_at'] = datetime.fromisoformat(kwargs
                                                               ['updated_at'])
             self.__dict__ = kwargs
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
-        models.storage.new(self)
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            models.storage.new(self)
 
     def save(self):
         """ Updates the updated_at instance with current datetime"""
