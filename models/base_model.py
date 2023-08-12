@@ -20,9 +20,6 @@ class BaseModel:
             save - updates the public instance
             to_dict - returns a dictionary of the instance
     """
-    id = ""
-    created_at = datetime.now()
-    updated_at = datetime.now()
 
     def __init__(self, *args, **kwargs):
         """
