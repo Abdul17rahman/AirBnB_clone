@@ -6,6 +6,7 @@
 
 from datetime import datetime
 import uuid
+import models
 
 
 class BaseModel:
@@ -24,17 +25,31 @@ class BaseModel:
     created_at = datetime
     updated_at = datetime
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """
             Initalization of the class attributes
         """
+
+        # Creating an instance from a dictionary
+        if kwargs is not None:
+            if '__class__' in kwargs:
+                del kwargs['__class__']
+            if 'created_at' in kwargs:
+                kwargs['created_at'] = datetime.fromisoformat(kwargs
+                                                              ['created_at'])
+            if 'updated_at' in kwargs:
+                kwargs['updated_at'] = datetime.fromisoformat(kwargs
+                                                              ['updated_at'])
+            self.__dict__ = kwargs
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
+        models.storage.new(self)
 
     def save(self):
         """ Updates the updated_at instance with current datetime"""
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def __str__(self):
         """
