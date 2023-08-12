@@ -15,7 +15,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, line):
         """ Ends or Quits out of the console"""
-        exit()
+        return True
 
     def do_EOF(self, line):
         """ Checks for the end of Line"""

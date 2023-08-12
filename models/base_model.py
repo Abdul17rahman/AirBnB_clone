@@ -26,6 +26,10 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """
             Initalization of the class attributes
+
+            Attr:
+                args - number of arguments
+                kwargs - key value arguments / dict
         """
 
         # Creating an instance from a dictionary
