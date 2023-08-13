@@ -20,7 +20,3 @@ class Place(BaseModel):
     latitude = float
     longitude = float
     amenity_ids = list
-
-    def __init__(self):
-        """ Initialize the Place Model using the Base"""
-        super().__init__()
