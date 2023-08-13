@@ -14,6 +14,6 @@ class User(BaseModel):
     first_name = ""
     last_name = ""
 
-    def __init(self):
+    def __init__(self):
         """ Initialize the User Model and the Base"""
         super().__init__()
