@@ -19,7 +19,7 @@ class Place(BaseModel):
     price_by_night = int
     latitude = float
     longitude = float
-    amenity_ids list
+    amenity_ids = list
 
     def __init__(self):
         """ Initialize the Place Model using the Base"""
