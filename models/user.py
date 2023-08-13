@@ -13,3 +13,7 @@ class User(BaseModel):
     password = ""
     first_name = ""
     last_name = ""
+
+    def __init(self):
+        """ Initialize the User Model and the Base"""
+        super().__init__()
