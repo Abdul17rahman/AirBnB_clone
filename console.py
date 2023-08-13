@@ -4,7 +4,8 @@
     Console Module - Entry Point
 """
 
-import sys, inspect
+import sys
+import inspect
 import cmd
 import models
 from models.base_model import BaseModel
