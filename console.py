@@ -90,11 +90,24 @@ class HBNBCommand(cmd.Cmd):
         """ Prints the string representation of all """
         all_inst = models.storage.all()
         obj_values = []
-        for key, value in all_inst.items():
-            obj_values.append(value)
-        # Print the obj representation
-        for obj in obj_values:
-            print(obj)
+        # Check if there is a class name as an argument
+        if arg:
+            for obj in self.cls_mem:
+                # Check if the class name exist
+                if arg == obj[0]:
+                    self.cls_exist = True
+                    # Print only the instances of that class
+                    for key, value in all_inst.items():
+                        if arg == value.__class__.__name__:
+                            print(value)
+            if not self.cls_exist:
+                print("** class doesn't exit **")
+        else:
+            # Print instances of all objects
+            for key, value in all_inst.items():
+                obj_values.append(value)
+            for obj in obj_values:
+                print(obj)
 
     def do_quit(self, line):
         """ Ends or Quits out of the console"""
